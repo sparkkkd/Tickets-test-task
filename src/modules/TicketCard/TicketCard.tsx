@@ -5,6 +5,7 @@ import { GiAirplaneDeparture } from 'react-icons/gi'
 import Button from '../../components/Button/Button'
 
 import styles from './TicketCard.module.sass'
+import { toast } from 'sonner'
 
 export default function TicketCard({
 	origin,
@@ -18,10 +19,16 @@ export default function TicketCard({
 	stops,
 	price,
 }: ITicket) {
+	const handleBuyTicket = (ticketName: string) => {
+		toast.message('Ура!', {
+			description: `Вы купили билет ${ticketName}`,
+		})
+	}
+
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.left}>
-				<Button>
+				<Button onClick={() => handleBuyTicket(`${origin_name} - ${destination_name}`)}>
 					Купить за
 					<br />
 					{price} ₽
