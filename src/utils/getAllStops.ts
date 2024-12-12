@@ -1,4 +1,5 @@
 import { ITicketsList } from '../models'
+import declOfNum from './declOfNum'
 
 // export const getAllStops = (tickets: ITicketsList) => {
 // 	const stops: number[] = []
@@ -22,7 +23,7 @@ export const getAllStops = (tickets: ITicketsList) => {
 
 	uniqueStops.forEach((ticket) => {
 		stops.push({
-			text: ticket + ' пересадка',
+			text: declOfNum(ticket, ['пересадка', 'пересадки', 'пересадок']),
 			option: ticket,
 		})
 	})

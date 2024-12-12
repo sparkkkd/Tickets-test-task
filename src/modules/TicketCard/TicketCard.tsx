@@ -1,9 +1,10 @@
-import { GiAirplaneDeparture } from 'react-icons/gi'
-import Button from '../../components/Button/Button'
-import styles from './TicketCard.module.sass'
+import declOfNum from '../../utils/declOfNum'
 import { ITicket } from '../../models'
 
-type TicketCardProps = ITicket
+import { GiAirplaneDeparture } from 'react-icons/gi'
+import Button from '../../components/Button/Button'
+
+import styles from './TicketCard.module.sass'
 
 export default function TicketCard({
 	origin,
@@ -14,7 +15,6 @@ export default function TicketCard({
 	departure_time,
 	arrival_date,
 	arrival_time,
-	carrier,
 	stops,
 	price,
 }: ITicket) {
@@ -31,7 +31,9 @@ export default function TicketCard({
 			<div className={styles.right}>
 				<div className={styles.plane}>
 					<GiAirplaneDeparture />
-					<span className={styles.stops}>{stops} пересадка</span>
+					<span className={styles.stops}>
+						{declOfNum(stops, ['пересадка', 'пересадки', 'пересадок'])}
+					</span>
 				</div>
 				<div className={styles.time}>
 					<span>{departure_time}</span>

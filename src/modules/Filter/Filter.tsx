@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { filterData } from '../../store/slices/ticketSlice'
 import { getAllStops } from '../../utils/getAllStops'
+
 import styles from './Filter.module.sass'
 
 export default function Filter() {
